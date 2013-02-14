@@ -7,33 +7,36 @@
  * It uses the aria-invalid attribute to validate for 508 complaince 
  * YOu can set your own CSS to make the fields pop out to the user
  * 
- * use it: check.validate('id','type(see below)')
- * 
- * Type:
- *   url - validates that string in standatd url format (RegEx)
- *   email - validates that there is a gormat of atleast => a@b.c (RegEx)
- *   text - Validates that there is text in the field...its pretty forgiving
+ * use it: 
+ *   check.text('id') - Validates that there is text in the field...its pretty forgiving
+ *   check.email('id') - validates that there is a gormat of atleast => a@b.com (RegEx)
+ *   check.url('id') - validates that string in standatd url format => a.com (RegEx)
  * 
  */
 
 
 var check = function(){
-  
+	
 	var emailPat = /^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$/;
 	var urlPat = /^(http[s]?:\/\/)?([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2}(\/([-~%\.\(\)\w\d]*\/*)*(#[-\w\d]+)?)?$/;
 	var val;
 	
+	
   return{
-    validate: function(id, type){
-     	        this.elem = document.getElementById(id);
-			   if(type == 'text')
+    text:  function(id){
+    	        this.elem = document.getElementById(id);
 			   	this.elem.addEventListener('change',function(){valText(this)},false);
-			   if(type == 'email')
-			   	this.elem.addEventListener('change',function(){valEmail(this)},false);
-		       if(type == 'url')
+           },
+          
+    email: function(id){
+    	        this.elem = document.getElementById(id);
+			   	this.elem.addEventListener('change',function(){valEmail(this)},false);      
+           },
+             
+    url:   function(id){
+    	        this.elem = document.getElementById(id);
 		   	    this.elem.addEventListener('change',function(){valUrl(this)},false);
-    	
-              }
+           }
   }
 
 	function isBlank(e){
