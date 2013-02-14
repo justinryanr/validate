@@ -5,7 +5,7 @@
  * A simple Form Validating Library
  * 
  * It uses the aria-invalid attribute to validate for 508 complaince 
- * YOu can set your own CSS to make the fields pop out to the user
+ * You can set your own CSS to make the fields pop out to the user
  * 
  * use it: 
  *   check.text('id') - Validates that there is text in the field...its pretty forgiving
@@ -25,59 +25,59 @@ var check = function(){
   return{
     text:  function(id){
     	        this.elem = document.getElementById(id);
-			   	this.elem.addEventListener('change',function(){valText(this)},false);
+		this.elem.addEventListener('change',function(){valText(this)},false);
            },
           
     email: function(id){
     	        this.elem = document.getElementById(id);
-			   	this.elem.addEventListener('change',function(){valEmail(this)},false);      
+		this.elem.addEventListener('change',function(){valEmail(this)},false);      
            },
              
     url:   function(id){
     	        this.elem = document.getElementById(id);
-		   	    this.elem.addEventListener('change',function(){valUrl(this)},false);
+		this.elem.addEventListener('change',function(){valUrl(this)},false);
            }
   }
 
 	function isBlank(e){
-		    val = e.value
-			if(val == null || val.length == 0)
-			return /\S/.test(e);
-			return false;
+	  val = e.value
+	  if(val == null || val.length == 0)
+	  return /\S/.test(e);
+	  return false;
 	}
 	
 	function valText (field){
-	    if(isBlank(field)){
-			field.setAttribute('aria-invalid', 'true');
-		}else{
-			field.setAttribute('aria-invalid', 'false');
-		}
+	  if(isBlank(field)){
+	    field.setAttribute('aria-invalid', 'true');
+	  }else{
+	    field.setAttribute('aria-invalid', 'false');
+	  }
 	}
 	
 	function valEmail(field){
-		if(!isBlank(field))
-		{
-			if(emailPat.test(field.value)){
-				field.setAttribute('aria-invalid', 'false');
-			}else{
-				field.setAttribute('aria-invalid', 'true');
-			}
-		}else{
-			alert("Field is Blank");
-		}
+	  if(!isBlank(field))
+	  {
+	    if(emailPat.test(field.value)){
+	      field.setAttribute('aria-invalid', 'false');
+	    }else{
+	      field.setAttribute('aria-invalid', 'true');
+	    }
+	  }else{
+	    alert("Field is Blank");
+	  }
 	}
 	
 	function valUrl(field){	
-		if(!isBlank(field))
-		{
-			if(urlPat.test(field.value)){
-				field.setAttribute('aria-invalid', 'false');
-			}else{
-				field.setAttribute('aria-invalid', 'true');
-			}
-		}else{
-			field.setAttribute('aria-invalid', 'true');
-		}
+	  if(!isBlank(field))
+	  {
+	    if(urlPat.test(field.value)){
+	      field.setAttribute('aria-invalid', 'false');
+	    }else{
+	      field.setAttribute('aria-invalid', 'true');
+	    }
+          }else{
+	    field.setAttribute('aria-invalid', 'true');
+          }
 	}
 
 }();
