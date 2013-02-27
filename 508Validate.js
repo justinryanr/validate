@@ -5,7 +5,8 @@
  * A simple Form Validating Library
  * 
  * It uses the aria-invalid attribute to validate for 508 complaince 
- * YOu can set your own CSS to make the fields pop out to the user
+ * You can set your own CSS to make the fields pop out to the user
+ * I use input[aria-invalid="true"]{ CSS STUFF }
  * 
  * use it: 
  *   check.text('id') - Validates that there is text in the field...its pretty forgiving
@@ -24,21 +25,21 @@
 	window.check = {
 	    text:  function(id){
 	    	        this.elem = document.getElementById(id);
-				   	this.elem.addEventListener('change',function(){valText(this)},false);
+			this.elem.addEventListener('change',function(){valText(this)},false);
 	           },
 	          
 	    email: function(id){
 	    	        this.elem = document.getElementById(id);
-				   	this.elem.addEventListener('change',function(){valEmail(this)},false);      
+			this.elem.addEventListener('change',function(){valEmail(this)},false);      
 	           },
 	             
 	    url:   function(id){
 	    	        this.elem = document.getElementById(id);
-			   	    this.elem.addEventListener('change',function(){valUrl(this)},false);
+			this.elem.addEventListener('change',function(){valUrl(this)},false);
 	          },
 	    date:  function(id){
 	    	        this.elem = document.getElementById(id);
-			   	    this.elem.addEventListener('change',function(){valDate(this)},false);
+			this.elem.addEventListener('change',function(){valDate(this)},false);
 	           }           
 	  }
 	
