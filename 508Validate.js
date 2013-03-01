@@ -1,6 +1,7 @@
 /*
  * 
- * 508 Validate
+ * 508 Validate - copyright (c) Justin Rings 2013
+ * Licensed Under MIT 
  * 
  * A simple Form Validating Library
  * 
@@ -13,6 +14,7 @@
  *   check.email('id') - validates that there is a gormat of atleast => a@b.com (RegEx)
  *   check.url('id') - validates that string in standatd url format => a.com (RegEx)
  * 
+ * Feel free to use as you would like...
  */
 
 (function(){
