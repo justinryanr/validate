@@ -1,7 +1,9 @@
-validate
+508validate
 ========
 
 Aria Form Validation
+508Validate - copyright (c) Justin Rings 2013
+Licensed under MIT (LICENSE)
 
 How to use
  
